@@ -34,3 +34,9 @@ kubectl -n sock-shop get svc front-end
 
 
 install nginx ingress
+
+
+cleaup
+ kubeadm reset
+
+tutorial: https://www.mirantis.com/blog/how-install-kubernetes-kubeadm/
