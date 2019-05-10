@@ -105,8 +105,19 @@ spec:
    - port: 5432
   selector:
    app: postgres
-```
+EOB
 
 kubectl create -f example-postgres-service.yaml 
 
 kubectl get svc example-postgres
+```
+
+```
+# kubectl delete service postgres 
+# kubectl delete deployment postgres
+# kubectl delete configmap postgres-config
+# kubectl delete persistentvolumeclaim postgres-pv-claim
+# kubectl delete persistentvolume postgres-pv-volume
+```
+
+
