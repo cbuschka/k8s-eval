@@ -121,3 +121,9 @@ kubectl get svc example-postgres
 ```
 
 
+
+Read 
+
+https://kubernetes.io/blog/2017/02/postgresql-clusters-kubernetes-statefulsets
+
+for scaling postgres via stateful sets.
