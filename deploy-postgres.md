@@ -90,3 +90,23 @@ EOB
 
 kubectl create -f example-postgres-deployment.yaml
 ```
+
+```
+cat - >example-postgres-service.yaml <<EOB
+apiVersion: v1
+kind: Service
+metadata:
+  name: example-postgres
+  labels:
+    app: postgres
+spec:
+  type: NodePort
+  ports:
+   - port: 5432
+  selector:
+   app: postgres
+```
+
+kubectl create -f example-postgres-service.yaml 
+
+kubectl get svc example-postgres
