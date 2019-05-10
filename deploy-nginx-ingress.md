@@ -8,3 +8,5 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/mast
 
 kubectl get pods --all-namespaces -l app.kubernetes.io/name=ingress-nginx --watch
 
+now ingress controller runs, install ingress for service
+https://kubernetes.io/docs/concepts/services-networking/ingress/
