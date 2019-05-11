@@ -230,8 +230,13 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   rules:
-  - http:
+  - host: hello.ws0
+    http:
       paths:
+      - path: /
+        backend:
+          serviceName: hello-service
+          servicePort: 8080
       - path: /hello
         backend:
           serviceName: hello-service
