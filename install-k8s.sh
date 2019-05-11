@@ -2,19 +2,11 @@
 
 set -e
 
+source $(dirname $0)/configrc
+source $(dirname $0)/lib.include.sh
+
 steps="install initk8s createAdminUser deployDashboard installIngressController deployHello"
 startStep=${1:-install}
-
-function printBanner() {
-  echo "=================================================="
-  echo "== $@"
-  echo "=================================================="
-}
-
-# https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/
-
-user=root
-host=192.168.122.173
 
 function install() {
 printBanner "Configuring swap..."
