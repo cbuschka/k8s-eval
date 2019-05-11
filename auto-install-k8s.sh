@@ -198,7 +198,7 @@ spec:
     spec:
       containers:
       - name: hello
-        image: gcr.io/hello-minikube-zero-install/hello-node
+        image: cbuschka/myhello:1.0
         ports:
         - containerPort: 8080
 EOB
