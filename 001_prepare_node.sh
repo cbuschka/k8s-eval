@@ -53,8 +53,18 @@ printBanner "Installing docker packages..."
 ssh ${user}@${host} "
 export APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1
 curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
-echo \"deb [arch=amd64] https://download.docker.com/linux/debian stretch stable\" > /etc/apt/sources.list.d/docker.list
+echo \"deb [arch=amd64] https://download.docker.com/linux/debian stretch stable\" > /etc/apt/sources.list.d/download_docker_com_linux_debian.list
 apt-get -y update && apt-get install -qy docker-ce docker-ce-cli containerd.io
+"
+
+printBanner "Installing k8s packages..."
+ssh ${user}@${host} "
+export APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1
+curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+cat <<EOF >/etc/apt/sources.list.d/apt_kubernetes_io_kubernetes-xenial.list
+deb http://apt.kubernetes.io/ kubernetes-xenial main
+EOF
+apt-get -y update && apt-get install -qy kubelet kubeadm kubectl
 "
 
 exit $?
