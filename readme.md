@@ -30,5 +30,8 @@ targets:
 * installIngressController
 * deployHello
 
+## helpful
+[cheatsheet](./cheatsheet.md)
+
 ## license
 MIT
