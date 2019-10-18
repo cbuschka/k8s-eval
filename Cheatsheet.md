@@ -17,3 +17,8 @@ kubectl -n kube-system get secret | grep admin-user | awk '{print $1}'
 
 kubectl -n kube-system describe secret admin-user-token-lgqsj
 ```
+
+### list pods
+```
+kubectl get pods
+```
