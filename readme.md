@@ -10,25 +10,73 @@
 - based on https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/
 
 ## prerequesites
-- vm, named ws0
-- alias in /etc/hosts for ws0 called hello.ws0
+- 3 vms, 192.168.0.181/182/183, 4g ram per node
 - debian stretch
-- ip 192.168.122.173
-- 4g ram
 
 ## usage
 
+### prepare your client machine (still fedora only)
 ```
-./install-k8s.sh install
+./001_prepare_client.sh
 ```
 
-targets:
-* install
-* initk8s
-* createAdminUser
-* deployDashboard
-* installIngressController
-* deployHello
+### prepare a node for k8s installation, master and workers
+This needs a config file below config.d/.
+```
+002_prepare_node.sh <config name>
+```
+
+### install a k8s master via kubeadm
+This needs a config file named master below config.d/.
+```
+010_install_master.sh
+```
+
+### fetch the config from the master for access
+```
+021_fetch_kube_config.sh
+```
+
+then run
+```
+kubectl proxy
+```
+
+### install network on master
+```
+022_install_flannel.sh
+```
+
+### if you want to run jobs on your master (for stability reasons dont do it)
+```
+023_optionally_taint_master.sh
+```
+
+### add an k8s admin user ("rbac") for access
+```
+024_add_admin_user.sh
+```
+
+### deploy the dashboard
+```
+025_deploy_dashboard.sh
+```
+
+### deploy an ingress controller
+```
+031_install_ingress_controller.sh
+```
+
+### deploy an hello world app
+```
+040_deploy_app.sh
+```
+
+### reset a noe
+Node config below config.d/ required.
+```
+900_reset.sh <config file>
+```
 
 ## helpful
 [cheatsheet](./cheatsheet.md)
