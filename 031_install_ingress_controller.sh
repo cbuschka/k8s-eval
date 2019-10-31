@@ -2,7 +2,8 @@
 
 set -e
 
-source $(dirname $0)/configrc
+source $(dirname $0)/config.d/cluster
+source $(dirname $0)/config.d/master
 source $(dirname $0)/lib.include.sh
 
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/fafa0a6e133c73e2b95d1a0504f8066c08e4a162/deploy/mandatory.yaml

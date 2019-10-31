@@ -2,7 +2,7 @@
 
 set -e
 
-source $(dirname $0)/configrc
+source $(dirname $0)/config.d/master
 source $(dirname $0)/lib.include.sh
 
 printBanner "Fetching kube config..."
