@@ -5,6 +5,11 @@ set -e
 source $(dirname $0)/configrc
 source $(dirname $0)/lib.include.sh
 
+if [ ! "${USER}" = "root" ]; then
+  echo "Run with sudo or as root."
+  exit 1
+fi
+
 printBanner "Installing tools..."
 cat - > /etc/yum.repos.d/kubernetes.repo <<EOB
 [kubernetes]
