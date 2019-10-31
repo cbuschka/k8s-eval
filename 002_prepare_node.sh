@@ -62,9 +62,9 @@ ssh ${user}@${host} "
 export APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE=1
 curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
 cat <<EOF >/etc/apt/sources.list.d/apt_kubernetes_io_kubernetes-xenial.list
-deb http://apt.kubernetes.io/ kubernetes-xenial main
+deb http://apt.kubernetes.io/ kubernetes-stretch main
 EOF
-apt-get -y update && apt-get install -qy kubelet kubeadm kubectl
+apt-get -y update && apt-get install -qy --allow-downgrades kubelet kubeadm=${kubeadm_version} kubectl
 "
 
 exit $?

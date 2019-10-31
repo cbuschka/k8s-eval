@@ -1,3 +1,4 @@
+kubeadm_version=1.15.5-00
 user=root
 host=192.168.0.181
 cluster_domain=kluster.arcusx.lan
