@@ -62,6 +62,8 @@ kubectl proxy
 025_deploy_dashboard.sh
 ```
 
+[dashboard](http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/#!/secret?namespace=default)
+
 ### deploy an ingress controller
 ```
 031_install_ingress_controller.sh
