@@ -69,9 +69,14 @@ kubectl proxy
 031_install_ingress_controller.sh
 ```
 
-### deploy an hello world app
+### deploy an stateless hello world app
 ```
 040_deploy_app.sh
+```
+
+### deploy an stateful app, db with persistent volume
+```
+041_deploy_db.sh
 ```
 
 ### reset a noe
